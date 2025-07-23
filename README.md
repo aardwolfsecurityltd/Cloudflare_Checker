@@ -1,4 +1,4 @@
-# Cloudflare IP Range Checker
+# Cloudflare IP Checker
 
 A bash script that checks if IP addresses are within Cloudflare's official IP ranges. Perfect for security audits, log analysis, and identifying Cloudflare-proxied services.
 
