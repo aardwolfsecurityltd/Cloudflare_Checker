@@ -16,9 +16,9 @@ A bash script that checks if IP addresses are within Cloudflare's official IP ra
 
 1. Download the script:
 ```bash
-wget https://raw.githubusercontent.com/yourusername/cloudflare-ip-checker/main/cloudflare_checker.sh
+wget https://raw.githubusercontent.com/aardwolfsecurityltd/cloudflare-ip-checker/main/cloudflare_checker.sh
 # or
-curl -O https://raw.githubusercontent.com/yourusername/cloudflare-ip-checker/main/cloudflare_checker.sh
+curl -O https://raw.githubusercontent.com/aardwolfsecurityltd/cloudflare-ip-checker/main/cloudflare_checker.sh
 ```
 
 2. Make it executable:
