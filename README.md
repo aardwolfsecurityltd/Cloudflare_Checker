@@ -16,9 +16,7 @@ A bash script that checks if IP addresses are within Cloudflare's official IP ra
 
 1. Download the script:
 ```bash
-wget https://raw.githubusercontent.com/aardwolfsecurityltd/cloudflare-ip-checker/main/cloudflare_checker.sh
-# or
-curl -O https://raw.githubusercontent.com/aardwolfsecurityltd/cloudflare-ip-checker/main/cloudflare_checker.sh
+git clone https://github.com/aardwolfsecurityltd/Cloudflare_Checker
 ```
 
 2. Make it executable:
@@ -92,14 +90,6 @@ Summary:
   Non-Cloudflare IPs: 2
 ```
 
-## Exit Codes
-
-The script returns different exit codes for automation:
-
-- **0**: All IPs are within Cloudflare ranges
-- **1**: Some IPs are not in Cloudflare ranges
-- **2**: Some IPs had invalid format
-
 ## Use Cases
 
 ### Security Analysis
@@ -115,23 +105,6 @@ grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' access.log | sort -u > ips.txt
 ./cloudflare_checker.sh -f ips.txt
 ```
 
-### CI/CD Integration
-```bash
-#!/bin/bash
-if ./cloudflare_checker.sh -f production_ips.txt; then
-    echo "All production IPs are properly behind Cloudflare"
-else
-    echo "Warning: Some IPs are not using Cloudflare protection"
-    exit 1
-fi
-```
-
-### Network Monitoring
-```bash
-# Check a list of your domains' IPs
-dig +short example.com | ./cloudflare_checker.sh -f -
-```
-
 ## Advanced Usage
 
 ### Combining with Other Tools
@@ -142,16 +115,6 @@ nmap -sn 192.168.1.0/24 | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' | \
 
 # Check IPs from DNS resolution
 dig +short @8.8.8.8 example.com | ./cloudflare_checker.sh -f -
-```
-
-### Automation Scripts
-```bash
-#!/bin/bash
-# Daily Cloudflare check for critical services
-CRITICAL_IPS="critical_services.txt"
-if ! ./cloudflare_checker.sh -f "$CRITICAL_IPS"; then
-    echo "Alert: Critical services not behind Cloudflare!" | mail admin@company.com
-fi
 ```
 
 ## Technical Details
